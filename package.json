@@ -1,0 +1,27 @@
+{
+  "name": "kn-react-redux-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "kn-react-redux": "./bin/kn-react-redux.js"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thondery/kn-react-redux-cli.git"
+  },
+  "author": "thondery <thondery@163.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.5.4"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-extra": "^1.0.0",
+    "lodash": "^4.17.3"
+  }
+}
