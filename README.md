@@ -1,6 +1,7 @@
 # kn-react-redux-cli
 
-This is a React and Redux engineering rapid generation tool\
+This is a React and Redux engineering rapid generation tool
+
 Reference and modify from [React Redux Starter Kit][starterkit-url] & [Rekit][rekit-url]
 
 [![NPM Version][npm-image]][npm-url]
