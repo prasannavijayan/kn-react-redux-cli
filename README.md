@@ -6,6 +6,8 @@ Reference and modify from [React Redux Starter Kit][starterkit-url] & [Rekit][re
 
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
+[![Build Status][travis-image]][travis-url]
+[![Codecov Status][codecov-image]][codecov-url]
 [![dependencies Status][dependencies-image]][dependencies-url]
 [![Gratipay][licensed-image]][licensed-url]
 
@@ -78,7 +80,11 @@ License](http://www.opensource.org/licenses/MIT).
 [npm-url]: https://www.npmjs.org/package/
 [downloads-image]: https://img.shields.io/npm/dm/kn-react-redux-cli.svg
 [downloads-url]: https://npmjs.org/package/kn-react-redux-cli
-[dependencies-image]: https://david-dm.org/kenode/kn-react-redux/status.svg
-[dependencies-url]: https://david-dm.org/kenode/kn-react-redux-cli
+[travis-image]: https://travis-ci.org/thondery/kn-react-redux-cli.svg?branch=master
+[travis-url]: https://travis-ci.org/thondery/kn-react-redux-cli
+[codecov-image]: https://img.shields.io/codecov/c/github/thondery/kn-react-redux-cli/master.svg
+[codecov-url]:   https://codecov.io/github/thondery/kn-react-redux-cli?branch=master
+[dependencies-image]: https://david-dm.org/thondery/kn-react-redux/status.svg
+[dependencies-url]: https://david-dm.org/thondery/kn-react-redux-cli
 [licensed-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [licensed-url]: ./LICENSE
