@@ -77,7 +77,7 @@ License](http://www.opensource.org/licenses/MIT).
 [starterkit-url]: https://github.com/davezuko/react-redux-starter-kit
 [rekit-url]: https://github.com/supnate/rekit
 [npm-image]: https://img.shields.io/npm/v/kn-react-redux-cli.svg
-[npm-url]: https://www.npmjs.org/package/
+[npm-url]: https://www.npmjs.org/package/kn-react-redux-cli
 [downloads-image]: https://img.shields.io/npm/dm/kn-react-redux-cli.svg
 [downloads-url]: https://npmjs.org/package/kn-react-redux-cli
 [travis-image]: https://travis-ci.org/thondery/kn-react-redux-cli.svg?branch=master
