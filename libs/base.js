@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 
 const createPackage = (dir, name, author) => {
-  const pkg = {}
+  var pkg = {}
   //const tpl = fs.readJSONSync(path.resolve(__dirname, 'tpl/package.json'))
   const tpl = require('./tpl/package.json')
   pkg.name = name || 'react-redux-project'
