@@ -6,6 +6,7 @@ const createPackage = (dir, name, author) => {
   const tpl = fs.readJSONSync(path.resolve(__dirname, 'tpl/package.json'))
   pkg.name = name || 'react-redux-project'
   pkg.version = '1.0.0'
+  pkg.description = ''
   pkg.main = 'index.js'
   pkg = Object.assign(pkg, tpl)
   console.log('Creating package.json')

@@ -7,7 +7,7 @@ const create = (dir, name) => {
     console.log('Path must be completed')
     return
   }
-  const BASEDIR = /^([a-zA-Z]{1}\:\\)/.test(dir) ? dir : path.resolve(process.env.PWD, dir)
+  const BASEDIR = /^([a-zA-Z]{1}\:\\)/.test(dir) ? dir : path.resolve(process.cwd(), dir)
   const __BASEDIR__ = BASEDIR.replace(/\s/g, '_')
   console.log(__BASEDIR__)
   base.createApp(__BASEDIR__, name)

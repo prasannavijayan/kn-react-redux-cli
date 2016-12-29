@@ -24,6 +24,33 @@ describe('kn-react-redux cli', function () {
     cleanup(done)
   })
 
+  describe('create', function () {
+    var dir
+
+    mocha.before(function (done) {
+      createEnvironment(function (err, newDir) {
+        if (err) return done(err)
+        console.log(newDir)
+        dir = newDir
+        done()
+      })
+    })
+
+    mocha.after(function (done) {
+      this.timeout(30000)
+      cleanup(dir, done)
+    })
+
+    it('should create basic app', function (done) {
+      run(dir, ['create', 'demo'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+  })
+
   describe('init', function () {
     var dir
 
@@ -45,7 +72,7 @@ describe('kn-react-redux cli', function () {
       run(dir, ['init'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
-        done();
+        done()
       })
     })
 
@@ -87,26 +114,26 @@ function run(dir, args, callback) {
   child.stdout.setEncoding('utf8')
   child.stdout.on('data', function ondata(str) {
     stdout += str
-  });
-  child.stderr.setEncoding('utf8');
+  })
+  child.stderr.setEncoding('utf8')
   child.stderr.on('data', function ondata(str) {
-    process.stderr.write(str);
-    stderr += str;
+    process.stderr.write(str)
+    stderr += str
   });
 
-  child.on('close', onclose);
-  child.on('error', callback);
+  child.on('close', onclose)
+  child.on('error', callback)
 
   function onclose(code) {
-    var err = null;
+    var err = null
 
     try {
-      assert.equal(stderr, '');
-      assert.strictEqual(code, 0);
+      assert.equal(stderr, '')
+      assert.strictEqual(code, 0)
     } catch (e) {
-      err = e;
+      err = e
     }
 
-    callback(err, stdout.replace(/\x1b\[(\d+)m/g, '_color_$1_'));
+    callback(err, stdout.replace(/\x1b\[(\d+)m/g, '_color_$1_'))
   }
 }
