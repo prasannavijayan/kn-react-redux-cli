@@ -84,7 +84,7 @@ License](http://www.opensource.org/licenses/MIT).
 [travis-url]: https://travis-ci.org/thondery/kn-react-redux-cli
 [codecov-image]: https://img.shields.io/codecov/c/github/thondery/kn-react-redux-cli/master.svg
 [codecov-url]:   https://codecov.io/github/thondery/kn-react-redux-cli?branch=master
-[dependencies-image]: https://david-dm.org/thondery/kn-react-redux/status.svg
+[dependencies-image]: https://david-dm.org/thondery/kn-react-redux-cli/status.svg
 [dependencies-url]: https://david-dm.org/thondery/kn-react-redux-cli
 [licensed-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [licensed-url]: ./LICENSE
