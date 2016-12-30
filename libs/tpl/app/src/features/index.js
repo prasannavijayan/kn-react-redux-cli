@@ -4,9 +4,9 @@
 import Home from './home'
 import HomeReducer from './home/reducer'
 
-export const Routes = {
+export const Routes = [
   Home,
-}
+]
 
 export const Reducers = {
   HomeReducer,
