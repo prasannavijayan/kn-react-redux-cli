@@ -30,7 +30,6 @@ describe('kn-react-redux cli', function () {
     mocha.before(function (done) {
       createEnvironment(function (err, newDir) {
         if (err) return done(err)
-        console.log(newDir)
         dir = newDir
         done()
       })
@@ -57,7 +56,6 @@ describe('kn-react-redux cli', function () {
     mocha.before(function (done) {
       createEnvironment(function (err, newDir) {
         if (err) return done(err)
-        console.log(newDir)
         dir = newDir
         done()
       })
@@ -70,6 +68,48 @@ describe('kn-react-redux cli', function () {
 
     it('should init basic app', function (done) {
       run(dir, ['init'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+  })
+
+  describe('add', function () {
+    var dir
+
+    mocha.before(function (done) {
+      createEnvironment(function (err, newDir) {
+        if (err) return done(err)
+        dir = newDir
+        done()
+      })
+    })
+
+    mocha.after(function (done) {
+      this.timeout(30000)
+      cleanup(dir, done)
+    })
+
+    it('should add a component', function (done) {
+      run(dir, ['add', '--component', 'button'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should add a feature', function (done) {
+      run(dir, ['add', '--feature', 'home'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should add a feature & [allow override]', function (done) {
+      run(dir, ['add', '--feature', 'home', '--replace'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()

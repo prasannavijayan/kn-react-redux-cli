@@ -9,9 +9,7 @@ describe('containers/app', () => {
     _wrapper = shallow(<App />)
   })
 
-  it('Renders a welcome message', () => {
-    const welcome = _wrapper.find('h1')
-    expect(welcome).to.exist
-    expect(welcome.text()).to.match(/Hello World!!!/)
+  it('Renders node', () => {
+    expect(_wrapper.node).to.exist
   })
 })

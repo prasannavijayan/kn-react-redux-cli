@@ -29,12 +29,17 @@ $ kn-react-redux
 
     create [dir]  Create a project for React
     init          Initialize a project for React
+    add           Add a file to the project
 
   Options:
 
-    -h, --help         output usage information
-    -V, --version      output the version number
-    -n, --name <name>  project name
+    -h, --help                output usage information
+    -V, --version             output the version number
+    -n, --name <name>         project name
+    -c, --component <name>    component name
+    -f, --feature <name>      feature name
+    -r, --route <route-path>  set route path
+    --replace                 Whether to replace the file
 ```
 
 ## Usage
@@ -55,7 +60,21 @@ kn-react-redux init
 npm i
 ```
 
-### 3. Run Scripts for Project
+### 3. Add a Component to Project
+
+```bash
+cd react-redux-project
+kn-react-redux add --component button
+```
+
+### 4. Add a Feature to Project
+
+```bash
+cd react-redux-project
+kn-react-redux add --feature user --route user
+```
+
+### 5. Run Scripts for Project
 
 ```bash
 # Run a development environment

@@ -1,11 +1,13 @@
 import App from '../containers/app'
+import { Routes } from '../features'
+import PageNotFound from '../components/page-not-found'
+
+Routes.push({ path: '*', name: 'Page not found', component: PageNotFound })
 
 const routes = [{
   path: '/',
   component: App,
-  childRoutes: [
-
-  ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0))
+  childRoutes: Routes.filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0))
 }]
 
 // Handle isIndex property of route config:
