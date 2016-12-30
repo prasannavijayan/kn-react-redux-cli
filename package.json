@@ -1,11 +1,12 @@
 {
   "name": "kn-react-redux-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "This is a React and Redux engineering rapid generation tool",
   "main": "index.js",
   "preferGlobal": true,
   "bin": {
-    "kn-react-redux": "./bin/kn-react-redux.js"
+    "kn-react-redux": "./bin/kn-react-redux.js",
+    "krr": "./bin/kn-react-redux.js"
   },
   "keywords": [
     "babel",
