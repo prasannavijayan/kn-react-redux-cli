@@ -57,6 +57,13 @@ const addFeature = (dir, name, replace, route) => {
 
 exports.addFeature = addFeature
 
+const removeFeature = (dir, name) => {
+  fs.removeSync(path.resolve(dir, `src/features/${name}`))
+  updateRoute(dir)
+}
+
+exports.removeFeature = removeFeature
+
 const updateRoute = (dir) => {
   const features = fs.readdirSync(path.resolve(dir, `src/features`))
   const headerStr = '// ------------------------------------\n' +

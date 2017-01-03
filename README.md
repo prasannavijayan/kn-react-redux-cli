@@ -20,16 +20,17 @@ npm i -g kn-react-redux-cli
 ## Commands
 
 ```bash
-$ kn-react-redux
+$ krr
 
-  Usage: kn-react-redux [command] [options]
+  Usage: krr [command] [options]
 
 
   Commands:
 
-    create [dir]  Create a project for React
-    init          Initialize a project for React
-    add           Add a file to the project
+    create [dir]           Create a project for React
+    init                   Initialize a project for React
+    add [options]          Add a file to the project
+    remove [feature-name]  remove a feature to the project
 
   Options:
 
@@ -47,7 +48,7 @@ $ kn-react-redux
 ### 1. Create a Project
 
 ```bash
-kn-react-redux create react-redux-project
+krr create react-redux-project
 cd react-redux-project
 npm i
 ```
@@ -56,7 +57,7 @@ npm i
 
 ```bash
 cd react-redux-project
-kn-react-redux init
+krr init
 npm i
 ```
 
@@ -64,17 +65,24 @@ npm i
 
 ```bash
 cd react-redux-project
-kn-react-redux add --component button
+krr add --component button
 ```
 
 ### 4. Add a Feature to Project
 
 ```bash
 cd react-redux-project
-kn-react-redux add --feature user --route user
+krr add --feature user --route user
 ```
 
-### 5. Run Scripts for Project
+### 5. Remove a Feature to Project
+
+```bash
+cd react-redux-project
+krr remove user
+```
+
+### 6. Run Scripts for Project
 
 ```bash
 # Run a development environment
@@ -85,6 +93,70 @@ npm run compile
 npm run compile:desktop
 # Test project
 npm run test
+```
+
+## Project structure
+
+```
+|-- project name
+|    |-- bin
+|    |    |-- compile.js
+|    |    |-- dev-server.js
+|    |    |-- ...
+|    |-- config
+|    |    |-- environments.config.js
+|    |    |-- karma.config.js
+|    |    |-- project.config.js
+|    |    |-- webpack.config.js
+|    |    |-- ...
+|    |-- public
+|    |    |-- favicon.ico
+|    |    |-- humans.txt
+|    |    |-- robots.txt
+|    |    |-- ...
+|    |-- server
+|    |    |-- main.js
+|    |    |-- ...
+|    |-- src
+|    |    |-- components
+|    |    |    +-- page-not-found
+|    |    |    |-- ...
+|    |    |-- containers
+|    |    |    |-- app.js
+|    |    |    |-- root.js
+|    |    |    |-- ...
+|    |    |-- features
+|    |    |    |-- home
+|    |    |    |    |-- action.js
+|    |    |    |    |-- component.js
+|    |    |    |    |-- constant.js
+|    |    |    |    |-- container.js
+|    |    |    |    |-- index.js
+|    |    |    |    |-- initialState.js
+|    |    |    |    |-- reducer.js
+|    |    |    |    |-- ...
+|    |    |    +-- feature-1
+|    |    |    +-- feature-2
+|    |    |    |-- index.js
+|    |    |    |-- ...
+|    |    |-- store
+|    |    |    |-- configureStore.js
+|    |    |    |-- reducers.js
+|    |    |    |-- routeConfig.js
+|    |    |    |-- ...
+|    |    |-- index.html
+|    |    |-- main.js
+|    |    |-- ...
+|    |-- tests
+|    |    +-- components
+|    |    +-- containers
+|    |    +-- features
+|    |    |-- .eslintrc
+|    |    |-- test-bundler.js
+|    |    |-- ...
+|    |-- .eslintrc
+|    |-- package.json
+|    |-- ...
 ```
 
 ## License

@@ -1,6 +1,6 @@
 {
   "name": "kn-react-redux-cli",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "This is a React and Redux engineering rapid generation tool",
   "main": "index.js",
   "preferGlobal": true,

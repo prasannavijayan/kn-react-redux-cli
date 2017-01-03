@@ -24,6 +24,48 @@ describe('kn-react-redux cli', function () {
     cleanup(done)
   })
 
+  describe('usage & help', function () {
+    var dir
+
+    mocha.before(function (done) {
+      createEnvironment(function (err, newDir) {
+        if (err) return done(err)
+        dir = newDir
+        done()
+      })
+    })
+
+    mocha.after(function (done) {
+      this.timeout(30000)
+      cleanup(dir, done)
+    })
+
+    it('should usage', function (done) {
+      run(dir, [], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should help for --help', function (done) {
+      run(dir, ['--help'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should help for -h', function (done) {
+      run(dir, ['-h'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+  })
+
   describe('create', function () {
     var dir
 
@@ -41,7 +83,31 @@ describe('kn-react-redux cli', function () {
     })
 
     it('should create basic app', function (done) {
-      run(dir, ['create', 'demo'], function (err, stdout) {
+      run(dir, ['create'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should create basic app', function (done) {
+      run(dir, ['create', 'react-redux-project'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should create basic app for with spaces', function (done) {
+      run(dir, ['create', 'react redux project'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should create basic app for duplicate directory', function (done) {
+      run(dir, ['create', 'react redux project'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()
@@ -74,26 +140,16 @@ describe('kn-react-redux cli', function () {
       })
     })
 
-  })
-
-  describe('add', function () {
-    var dir
-
-    mocha.before(function (done) {
-      createEnvironment(function (err, newDir) {
+    it('should add for null', function (done) {
+      run(dir, ['add'], function (err, stdout) {
         if (err) return done(err)
-        dir = newDir
+        assert.equal(err, null)
         done()
       })
     })
 
-    mocha.after(function (done) {
-      this.timeout(30000)
-      cleanup(dir, done)
-    })
-
     it('should add a component', function (done) {
-      run(dir, ['add', '--component', 'button'], function (err, stdout) {
+      run(dir, ['add', '--component', 'topbar-button'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()
@@ -101,7 +157,7 @@ describe('kn-react-redux cli', function () {
     })
 
     it('should add a feature', function (done) {
-      run(dir, ['add', '--feature', 'home'], function (err, stdout) {
+      run(dir, ['add', '--feature', 'user'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()
@@ -109,7 +165,15 @@ describe('kn-react-redux cli', function () {
     })
 
     it('should add a feature & [allow override]', function (done) {
-      run(dir, ['add', '--feature', 'home', '--replace'], function (err, stdout) {
+      run(dir, ['add', '--feature', 'user', '--replace'], function (err, stdout) {
+        if (err) return done(err)
+        assert.equal(err, null)
+        done()
+      })
+    })
+
+    it('should remove a feature', function (done) {
+      run(dir, ['remove', 'user'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()
@@ -155,11 +219,11 @@ function run(dir, args, callback) {
   child.stdout.on('data', function ondata(str) {
     stdout += str
   })
-  child.stderr.setEncoding('utf8')
+  /*child.stderr.setEncoding('utf8')
   child.stderr.on('data', function ondata(str) {
     process.stderr.write(str)
     stderr += str
-  });
+  });*/
 
   child.on('close', onclose)
   child.on('error', callback)
