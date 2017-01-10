@@ -89,7 +89,7 @@ const updateRoute = (dir) => {
 }
 
 const fileNameToClassName = (name) => 
-  _.upperFirst(name.replace(/\-(\w)/g, (x) => x.slice(1).toUpperCase() ))
+  _.upperFirst(name.replace(/[^\/]*[\/]+/g, '').replace(/\-(\w)/g, (x) => x.slice(1).toUpperCase() ))
 
 const readFile = (_path) => 
   fs.readFileSync(path.resolve(__dirname, _path), encoding)

@@ -18,9 +18,14 @@ const webpackConfig = {
   devtool : project.compiler_devtool,
   resolve : {
     root       : project.paths.client(),
-    extensions : ['', '.js', '.jsx', '.json']
+    extensions : ['', '.js', '.jsx', '.json'],
+    alias: {
+      moment: 'moment/min/moment-with-locales.min.js'
+    }
   },
-  module : {}
+  module : {
+    noParse: [/moment-with-locales/]
+  }
 }
 
 // ------------------------------------

@@ -1,9 +1,13 @@
 {
   "name": "kn-react-redux-cli",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "This is a React and Redux engineering rapid generation tool",
   "main": "index.js",
   "preferGlobal": true,
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
   "bin": {
     "kn-react-redux": "./bin/kn-react-redux.js",
     "krr": "./bin/kn-react-redux.js"

@@ -2,7 +2,7 @@
 // Reducer
 // ------------------------------------
 import * as types from './constant'
-import initialState from './reducer'
+import initialState from './initialState'
 
 const ACTION_HANDLERS = {
 

@@ -38,6 +38,13 @@ const config = {
       'transform-runtime', 
       'react-hot-loader/babel',
       'lodash', 
+      ['import', [
+        { 
+          'libraryName': 'antd', 
+          'libraryDirectory': 'lib',
+          'style': 'css' 
+        }
+      ]]
     ]
   },
   compiler_devtool         : 'source-map',
@@ -51,6 +58,8 @@ const config = {
     colors       : true
   },
   compiler_vendors : [
+    'babel-polyfill',
+    'isomorphic-fetch',
     'react',
     'react-dom',
     'react-redux',

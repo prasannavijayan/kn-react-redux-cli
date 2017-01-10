@@ -36,7 +36,7 @@ export default class Home extends Component {
 
   // 组件判断是否重新渲染时调用
   shouldComponentUpdate (nextProps, nextState) {
-    return false
+    return true
   }
 
   // 移除组件时调用
