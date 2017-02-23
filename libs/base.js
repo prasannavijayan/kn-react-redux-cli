@@ -24,18 +24,18 @@ const createApp = (dir, name) => {
 
 exports.createApp = createApp
 
-const addComponent = (dir, name) => {
+const addComponent = (dir, name, overwrite) => {
   var component = readFile('tpl/tools/features/component.js')
   var className = fileNameToClassName(name)
   component = component.replace(/\<ClassName\>/g, className)
   console.log(`Add Component ${name}`)
   fs.mkdirsSync(path.resolve(dir, `src/components/${name}`))
-  writeFile(path.resolve(dir, `src/components/${name}/index.js`), component, true)
+  writeFile(path.resolve(dir, `src/components/${name}/index.js`), component, overwrite)
 }
 
 exports.addComponent = addComponent
 
-const addFeature = (dir, name, replace, route) => {
+const addFeature = (dir, name, overwrite, route) => {
   var component = readFile('tpl/tools/features/component.js')
   var container = readFile('tpl/tools/features/container.js')
   var _route = readFile('tpl/tools/features/route.js')
@@ -45,13 +45,13 @@ const addFeature = (dir, name, replace, route) => {
   _route = _route.replace(/\<ClassName\>/g, className).replace(/\<RoutePath\>/g, route)
   console.log(`Add Feature ${name}`)
   fs.mkdirsSync(path.resolve(dir, `src/features/${name}`))
-  writeFile(path.resolve(dir, `src/features/${name}/component.js`), component, replace)
-  writeFile(path.resolve(dir, `src/features/${name}/container.js`), container, replace)
-  writeFile(path.resolve(dir, `src/features/${name}/index.js`), _route, replace)
-  copyFile('tpl/tools/features/action.js', path.resolve(dir, `src/features/${name}/action.js`), replace)
-  copyFile('tpl/tools/features/constant.js', path.resolve(dir, `src/features/${name}/constant.js`), replace)
-  copyFile('tpl/tools/features/reducer.js', path.resolve(dir, `src/features/${name}/reducer.js`), replace)
-  copyFile('tpl/tools/features/initialState.js', path.resolve(dir, `src/features/${name}/initialState.js`), replace)
+  writeFile(path.resolve(dir, `src/features/${name}/component.js`), component, overwrite)
+  writeFile(path.resolve(dir, `src/features/${name}/container.js`), container, overwrite)
+  writeFile(path.resolve(dir, `src/features/${name}/index.js`), _route, overwrite)
+  copyFile('tpl/tools/features/action.js', path.resolve(dir, `src/features/${name}/action.js`), overwrite)
+  copyFile('tpl/tools/features/constant.js', path.resolve(dir, `src/features/${name}/constant.js`), overwrite)
+  copyFile('tpl/tools/features/reducer.js', path.resolve(dir, `src/features/${name}/reducer.js`), overwrite)
+  copyFile('tpl/tools/features/initialState.js', path.resolve(dir, `src/features/${name}/initialState.js`), overwrite)
   updateRoute(dir)
 }
 
@@ -94,18 +94,18 @@ const fileNameToClassName = (name) =>
 const readFile = (_path) => 
   fs.readFileSync(path.resolve(__dirname, _path), encoding)
 
-const writeFile = (_path, _data, replace) => {
+const writeFile = (_path, _data, overwrite) => {
   const isTrue = fs.existsSync(_path)
-  if (isTrue && !replace) {
+  if (isTrue && !overwrite) {
     console.log(`Warning: ${_path} Existed。`)
     return
   }
   fs.writeFileSync(_path, _data, {encoding})
 }
 
-const copyFile = (_path, _dest, replace) => {
+const copyFile = (_path, _dest, overwrite) => {
   const isTrue = fs.existsSync(_dest)
-  if (isTrue && !replace) {
+  if (isTrue && !overwrite) {
     console.log(`Warning: ${_dest} Existed。`)
     return
   }

@@ -165,7 +165,7 @@ describe('kn-react-redux cli', function () {
     })
 
     it('should add a feature & [allow override]', function (done) {
-      run(dir, ['add', '--feature', 'user', '--replace'], function (err, stdout) {
+      run(dir, ['add', '--feature', 'user', '--overwrite'], function (err, stdout) {
         if (err) return done(err)
         assert.equal(err, null)
         done()

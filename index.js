@@ -41,7 +41,7 @@ program
   .option('-c, --component <name>', 'component name')
   .option('-f, --feature <name>', 'feature name')
   .option('-r, --route <route-path>', 'set route path')
-  .option('--replace', 'Whether to replace the file')
+  .option('--overwrite', 'If file for already exists, replaces it')
   .action( () => {
     var _type, _name
     if (_.isString(program.component)) {
@@ -59,7 +59,7 @@ program
       return
     }
     const route = _.isString(program.route) ? program.route : ''
-    return add(_type, _name, program.replace, route)
+    return add(_type, _name, program.overwrite, route)
   })
 
 program
@@ -80,7 +80,7 @@ program
   .option('-c, --component <name>', 'component name')
   .option('-f, --feature <name>', 'feature name')
   .option('-r, --route <route-path>', 'set route path')
-  .option('--replace', 'Whether to replace the file')
+  .option('--overwrite', 'If file for already exists, replaces it')
 
 // Parse and fallback to help if no args
 if (_.isEmpty(program.parse(process.argv).args) && process.argv.length === 2) {

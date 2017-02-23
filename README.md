@@ -40,7 +40,7 @@ $ krr
     -c, --component <name>    component name
     -f, --feature <name>      feature name
     -r, --route <route-path>  set route path
-    --replace                 Whether to replace the file
+    --overwrite               If file for already exists, replaces it
 ```
 
 ## Usage
@@ -169,7 +169,7 @@ License](http://www.opensource.org/licenses/MIT).
 [rekit-url]: https://github.com/supnate/rekit
 [npm-image]: https://img.shields.io/npm/v/kn-react-redux-cli.svg
 [npm-url]: https://www.npmjs.org/package/kn-react-redux-cli
-[downloads-image]: https://img.shields.io/npm/dm/kn-react-redux-cli.svg
+[downloads-image]: https://img.shields.io/npm/dt/kn-react-redux-cli.svg
 [downloads-url]: https://npmjs.org/package/kn-react-redux-cli
 [travis-image]: https://travis-ci.org/thondery/kn-react-redux-cli.svg?branch=master
 [travis-url]: https://travis-ci.org/thondery/kn-react-redux-cli
